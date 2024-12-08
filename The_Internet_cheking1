@@ -1,0 +1,25 @@
+import streamlit as st
+import speedtest
+
+st.write("""# Здесь, вы можете проверить скорость вашего Интернета.""")
+
+def check_internet_speed():
+    try:
+        speedtest_result = speedtest.Speedtest()  # Имя переменной
+        speedtest_result.get_best_server()
+        speedtest_result.download()
+        speedtest_result.upload()
+        results_dict = speedtest_result.results.dict()
+
+        download_speed = results_dict['download'] / 1000000
+        upload_speed = results_dict['upload'] / 1000000
+        ping = results_dict['ping']
+
+        st.write(f"Скорость загрузки: {download_speed:.2f} Мбит/с")
+        st.write(f"Скорость выгрузки: {upload_speed:.2f} Мбит/с")
+        st.write(f"Пинг: {ping:.2f} мс")
+    except Exception as e:
+        st.error(f"Произошла ошибка при проверке скорости: {e}")
+
+if st.button("Проверить скорость интернета"):
+    check_internet_speed()
