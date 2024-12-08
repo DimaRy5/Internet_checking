@@ -24,4 +24,4 @@ def check_internet_speed():
         st.error(f"Произошла ошибка при проверке скорости: {e}")
 
 if st.button("Проверить скорость интернета"):
-    check_internet_speed()
+    check_internet_speed() # Запускать нужно в ТЕРМИНАЛЕ с помощью команды: streamlit run название_вашего_python-файла.py
