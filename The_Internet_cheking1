@@ -1,4 +1,6 @@
-import streamlit as st
+# Для начала скачайте библиотеки streamlit и speedtest-cli
+
+import streamlit as st 
 import speedtest
 
 st.write("""# Здесь, вы можете проверить скорость вашего Интернета.""")
